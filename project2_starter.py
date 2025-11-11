@@ -1,7 +1,7 @@
 """
 COMP 163 - Project 2: Character Abilities Showcase
-Name: [Your Name Here]
-Date: [Date]
+Name: Aidan Miles
+Date: 11-8-2025
 
 AI Usage: [Document any AI assistance used]
 Example: AI helped with inheritance structure and method overriding concepts
@@ -60,10 +60,16 @@ class Character:
     """
     
     def __init__(self, name, health, strength, magic):
+        self.name=name
+        self.health=health
+        self.strength=strength
+        self.magic=magic
+        
+       
         """Initialize basic character attributes"""
         # TODO: Set the character's name, health, strength, and magic
         # These should be stored as instance variables
-        pass
+        
         
     def attack(self, target):
         """
@@ -73,28 +79,42 @@ class Character:
         2. Apply damage to the target
         3. Print what happened
         """
+        damage = self.strength
+        target.take_damage(damage)
+        print(f"{target.name} took {damage} amount of damage from {self.name}")
         # TODO: Implement basic attack
         # Damage should be based on self.strength
         # Use target.take_damage(damage) to apply damage
-        pass
+        
         
     def take_damage(self, damage):
         """
         Reduces this character's health by the damage amount.
         Health should never go below 0.
         """
+        self.health -= damage 
+        if self.health < 0:
+            self.health = 0
+        if self.health == 0:
+            print("You died") 
+    
         # TODO: Implement taking damage
         # Reduce self.health by damage amount
         # Make sure health doesn't go below 0
-        pass
+        
         
     def display_stats(self):
         """
         Prints the character's current stats in a nice format.
         """
+        print(f"Name: {self.name}\n")
+        print(f"Health: {self.health}\n")
+        print(f"Strength: {self.strength}\n")
+        print(f"Magic: {self.magic}\n")
+
         # TODO: Print character's name, health, strength, and magic
         # Make it look nice with formatting
-        pass
+    
 
 class Player(Character):
     """
@@ -102,24 +122,35 @@ class Player(Character):
     Inherits from Character and adds player-specific features.
     """
     
-    def __init__(self, name, character_class, health, strength, magic):
+    def __init__(self,name,character_class,health,strength,magic):
         """
         Initialize a player character.
         Should call the parent constructor and add player-specific attributes.
         """
+        #Ai helped with the super().__init__ and explaning to me what it does inherits attributes from parent class 
+        super().__init__(name,health,strength,magic) 
+        self.character_class=character_class
+        self.level = 1
+        self.inventory=[]
+        
+        
+        
         # TODO: Call super().__init__() with the basic character info
         # TODO: Store the character_class (like "Warrior", "Mage", etc.)
         # TODO: Add any other player-specific attributes (level, experience, etc.)
-        pass
+        
         
     def display_stats(self):
         """
         Override the parent's display_stats to show additional player info.
         Should show everything the parent shows PLUS player-specific info.
         """
+        super().display_stats()
+        print(f"Level: {self.level}")
+        print(f"Inventory: {self.inventory}")
         # TODO: Call the parent's display_stats method using super()
         # TODO: Then print additional player info like class and level
-        pass
+        
 
 class Warrior(Player):
     """
@@ -132,19 +163,25 @@ class Warrior(Player):
         Create a warrior with appropriate stats.
         Warriors should have: high health, high strength, low magic
         """
+        super().__init__(name,120,15,5)
+        
+
+        
         # TODO: Call super().__init__() with warrior-appropriate stats
         # Suggested stats: health=120, strength=15, magic=5
-        pass
+        
         
     def attack(self, target):
         """
         Override the basic attack to make it warrior-specific.
         Warriors should do extra physical damage.
         """
+        damage=self.strength+5
+        target.take_damage(damage)
         # TODO: Implement warrior attack
         # Should do more damage than basic attack
         # Maybe strength + 5 bonus damage?
-        pass
+        
         
     def power_strike(self, target):
         """
@@ -165,15 +202,18 @@ class Mage(Player):
         Create a mage with appropriate stats.
         Mages should have: low health, low strength, high magic
         """
+        super().__init__(name,80,8,20)
         # TODO: Call super().__init__() with mage-appropriate stats
         # Suggested stats: health=80, strength=8, magic=20
-        pass
+        
         
     def attack(self, target):
         """
         Override the basic attack to make it magic-based.
         Mages should use magic for damage instead of strength.
         """
+        damage=self.magic
+        target.take_damage(damage)
         # TODO: Implement mage attack
         # Should use self.magic for damage calculation instead of strength
         pass
