@@ -163,7 +163,7 @@ class Warrior(Player):
         Create a warrior with appropriate stats.
         Warriors should have: high health, high strength, low magic
         """
-        super().__init__("Warrior",120,15,5)
+        super().__init__(name,"Warrior",120,15,5)
         
 
         
@@ -204,7 +204,7 @@ class Mage(Player):
         Create a mage with appropriate stats.
         Mages should have: low health, low strength, high magic
         """
-        super().__init__(name,80,8,20)
+        super().__init__(name,"Mage",80,8,20)
         # TODO: Call super().__init__() with mage-appropriate stats
         # Suggested stats: health=80, strength=8, magic=20
         
@@ -238,7 +238,7 @@ class Rogue(Player):
     """
     
     def __init__(self, name):
-        super().__init__(name,90,12,10)
+        super().__init__(name,"Rogue",90,12,10)
         """
         Create a rogue with appropriate stats.
         Rogues should have: medium health, medium strength, medium magic
