@@ -10,7 +10,7 @@ Example: AI helped with inheritance structure and method overriding concepts
 # ============================================================================
 # PROVIDED BATTLE SYSTEM (DO NOT MODIFY)
 # ============================================================================
-
+import random # this is used for the critical hit logic
 class SimpleBattle:
     """
     Simple battle system provided for you to test your characters.
@@ -163,7 +163,7 @@ class Warrior(Player):
         Create a warrior with appropriate stats.
         Warriors should have: high health, high strength, low magic
         """
-        super().__init__(name,120,15,5)
+        super().__init__("Warrior",120,15,5)
         
 
         
@@ -187,9 +187,11 @@ class Warrior(Player):
         """
         Special warrior ability - a powerful attack that does extra damage.
         """
+        damage=self.strength+15
+        target.take_damage(damage)
         # TODO: Implement power strike
         # Should do significantly more damage than regular attack
-        pass
+        
 
 class Mage(Player):
     """
@@ -216,15 +218,18 @@ class Mage(Player):
         target.take_damage(damage)
         # TODO: Implement mage attack
         # Should use self.magic for damage calculation instead of strength
-        pass
+        
         
     def fireball(self, target):
+        damage=self.magic*2
+        target.take_damage(damage)
+        
         """
         Special mage ability - a powerful magical attack.
         """
         # TODO: Implement fireball spell
         # Should do magic-based damage with bonus
-        pass
+        
 
 class Rogue(Player):
     """
@@ -233,15 +238,20 @@ class Rogue(Player):
     """
     
     def __init__(self, name):
+        super().__init__(name,90,12,10)
         """
         Create a rogue with appropriate stats.
         Rogues should have: medium health, medium strength, medium magic
         """
         # TODO: Call super().__init__() with rogue-appropriate stats
         # Suggested stats: health=90, strength=12, magic=10
-        pass
+        
         
     def attack(self, target):
+        damage=self.strength
+        if random.randint(1,10) <= 3:
+            damage *= 2 
+        target.take_damage(damage)
         """
         Override the basic attack to make it rogue-specific.
         Rogues should have a chance for extra damage (critical hits).
@@ -249,15 +259,20 @@ class Rogue(Player):
         # TODO: Implement rogue attack
         # Could add a chance for critical hit (double damage)
         # Hint: use random.randint(1, 10) and if result <= 3, it's a crit
-        pass
+        
         
     def sneak_attack(self, target):
+        damage=self.strength
+        damage *= 2
+        target.take_damage(damage)
+
         """
         Special rogue ability - guaranteed critical hit.
         """
         # TODO: Implement sneak attack
         # Should always do critical damage
-        pass
+        
+    
 
 class Weapon:
     """
@@ -266,18 +281,23 @@ class Weapon:
     """
     
     def __init__(self, name, damage_bonus):
+        self.name=name 
+        self.damage_bonus=damage_bonus 
+       
         """
         Create a weapon with a name and damage bonus.
         """
         # TODO: Store weapon name and damage bonus
-        pass
+        
         
     def display_info(self):
+        print(f"Weapon name: {self.name}")
+        print(f"Damage Bonus: {self.damage_bonus}")
         """
         Display information about this weapon.
         """
         # TODO: Print weapon name and damage bonus
-        pass
+        
 
 # ============================================================================
 # MAIN PROGRAM FOR TESTING (YOU CAN MODIFY THIS FOR TESTING)
