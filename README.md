@@ -1,3 +1,23 @@
+## Read Me Documentation 
+•	Bonus Creative Features: Did you add anything unique?
+I added things for each character type, such as the mage, warrior, and rogue. I added extra strength for certain attacks, and for the magical fireball hit, I made the damage +15. For certain methods, I also added printed messages so the user knows what is going on with their character. 
+
+
+•	AI Usage: What AI assistance did you use and where?
+I used AI assistance to help with errors that prevented my test cases from running successfully. I also used it to explain what super does. It also helped me redefine the attack method. 
+
+
+
+•	How to Run: Clear instructions for testing your code
+You run the code by opening the code and running it __name__ == "__main__": and then just take the hashtag off of the comments so they can become active. 
+
+
+
+
+
+
+
+
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/mMxhKicI)
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=21478088&assignment_repo_type=AssignmentRepo)
 # COMP 163 - Project 2: Character Abilities Showcase
