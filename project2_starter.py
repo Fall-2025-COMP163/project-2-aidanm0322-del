@@ -10,6 +10,7 @@ Example: AI helped with inheritance structure and method overriding concepts
 # ============================================================================
 # PROVIDED BATTLE SYSTEM (DO NOT MODIFY)
 # ============================================================================
+# Used ai to help with errors that prevented my code from running 
 import random # this is used for the critical hit logic
 class SimpleBattle:
     """
@@ -58,7 +59,7 @@ class Character:
     Base class for all characters.
     This is the top of our inheritance hierarchy.
     """
-    
+    #Initilizes the attributes for all the characters
     def __init__(self, name, health, strength, magic):
         self.name=name
         self.health=health
@@ -70,7 +71,7 @@ class Character:
         # TODO: Set the character's name, health, strength, and magic
         # These should be stored as instance variables
         
-        
+    #Allows the player to  attack the target and has a result of what happended     
     def attack(self, target):
         """
         Basic attack method that all characters can use.
@@ -86,7 +87,7 @@ class Character:
         # Damage should be based on self.strength
         # Use target.take_damage(damage) to apply damage
         
-        
+        #Allows the player to take damage from the target and if the health goes below 0 then it just ajusted to zero 
     def take_damage(self, damage):
         """
         Reduces this character's health by the damage amount.
@@ -102,7 +103,7 @@ class Character:
         # Reduce self.health by damage amount
         # Make sure health doesn't go below 0
         
-        
+    # Displays the characters stats 
     def display_stats(self):
         """
         Prints the character's current stats in a nice format.
@@ -115,13 +116,13 @@ class Character:
         # TODO: Print character's name, health, strength, and magic
         # Make it look nice with formatting
     
-
+ 
 class Player(Character):
     """
     Base class for player characters.
     Inherits from Character and adds player-specific features.
     """
-    
+    #initializing the attributes for player that came from character  
     def __init__(self,name,character_class,health,strength,magic):
         """
         Initialize a player character.
@@ -129,6 +130,7 @@ class Player(Character):
         """
         #Ai helped with the super().__init__ and explaning to me what it does inherits attributes from parent class 
         super().__init__(name,health,strength,magic) 
+        
         self.character_class=character_class
         self.level = 1
         self.inventory=[]
