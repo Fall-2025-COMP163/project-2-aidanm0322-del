@@ -1,15 +1,18 @@
 ## Read Me Documentation 
 •	Bonus Creative Features: Did you add anything unique?
+
 I added things for each character type, such as the mage, warrior, and rogue. I added extra strength for certain attacks, and for the magical fireball hit, I made the damage +15. For certain methods, I also added printed messages so the user knows what is going on with their character. 
 
 
 •	AI Usage: What AI assistance did you use and where?
-I used AI assistance to help with errors that prevented my test cases from running successfully. I also used it to explain what super does. It also helped me redefine the attack method. 
+
+I utilized AI assistance to address errors that prevented my test cases from running successfully. I also used it to explain what super does. It also helped me redefine the attack method. 
 
 
 
 •	How to Run: Clear instructions for testing your code
-You run the code by opening the code and running it __name__ == "__main__": and then just take the hashtag off of the comments so they can become active. 
+
+You run the code by opening it and running the code with' __name__ == "__main__" ', and then remove the hashtag from the comments so they can become active. 
 
 
 
